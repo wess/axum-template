@@ -1,0 +1,17 @@
+[package]
+name = "database"
+version = "0.0.1"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+oxide = {workspace = true}
+chrono = {workspace = true}
+uuid = {workspace = true}
+serde = {workspace = true}
+serde_json = {workspace = true}
+anyhow = {workspace = true}
+thiserror = {workspace = true}
+sqlx = {workspace = true}
+log = "0.4.17"

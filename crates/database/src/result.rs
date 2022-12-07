@@ -1,0 +1,1 @@
+pub type DatabaseResult<T> = anyhow::Result<T, crate::DatabaseError>;

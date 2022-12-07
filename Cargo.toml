@@ -1,0 +1,151 @@
+[package]
+name = "axum_template"
+version = "0.0.1"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+path = "src/lib.rs"
+
+[workspace]
+members = [
+    ".",
+    "crates/*"
+]
+
+[workspace.dependencies]
+oxide = {git = "https://github.com/wess/oxide.git", branch = "master"}
+tokio = {version = "1.21.2", features = ["full"]}
+futures = "0.3.24"
+serde = {version = "1.0.145", features = ["derive"]}
+serde_json = "1.0.85"
+chrono = {version = "0.4.22", features = ["serde"]}
+anyhow = "1.0.65"
+thiserror = "1.0.37"
+mime = "0.3.16"
+tracing = "0.1.36"
+tracing-appender = "0.2.2"
+lazy_static = "1.4.0"
+derive_more = "0.99.17"
+tera = "1.17.1"
+grass = "0.11.2"
+dotenvy = "0.15.6"
+http = "0.2.8"
+headers = "0.3.8"
+bytes = "1.3.0"
+http-body = "0.4.5"
+pin-project-lite = "0.2.9"
+uuid = { version = "1.1.2", features = ["serde", "v4"] }
+hyper = { version = "0.14.23", features = ["full"] }
+clap = { version = "4.0.19", features = ["derive"] }
+
+[workspace.dependencies.sqlx]
+version = "0.6"
+features = [
+  "runtime-tokio-native-tls", 
+  "chrono", 
+  "postgres",
+  "macros",
+  "json",
+  "bigdecimal",
+  "migrate",
+  "offline",
+  "uuid"
+]
+
+[workspace.dependencies.validator]
+version = "0.16.0"
+features = [
+  "card", 
+  "card-validate", 
+  "derive", 
+  "phone", 
+  "phonenumber"
+]
+
+[workspace.dependencies.tracing-subscriber]
+version = "0.3.15"
+features = [
+  "env-filter", 
+  "fmt", 
+  "std", 
+  "json"
+]
+  
+
+[workspace.dependencies.tower]
+version = "0.4.13"
+features = [
+  "util", 
+  "timeout", 
+  "load-shed", 
+  "limit", 
+  "tokio", 
+  "tokio-stream", 
+  "tokio-util"
+]
+
+[workspace.dependencies.tower-http]
+version = "0.3.4"
+features = ["full"]
+
+[workspace.dependencies.axum]
+version = "^0.6.0-rc.5"
+features = [
+  "form", 
+  "http1", 
+  "http2", 
+  "json", 
+  "matched-path", 
+  "original-uri", 
+  "query", 
+  "tower-log", 
+  "headers", 
+  "multipart",
+  "ws"
+]
+
+[workspace.dependencies.axum-extra]
+version = "^0.4.0-rc.3"
+features = [
+  "form",
+  "query",
+  "spa"
+]
+
+
+[dependencies]
+oxide = {workspace = true} 
+tokio = {workspace = true}
+futures = {workspace = true}
+tracing-subscriber = {workspace = true}
+tracing = {workspace = true}
+tracing-appender = {workspace = true}
+clap = {workspace = true}
+serde = {workspace = true}
+serde_json = {workspace = true}
+chrono = {workspace = true}
+anyhow = {workspace = true}
+thiserror = {workspace = true}
+mime = {workspace = true}
+uuid = {workspace = true}
+lazy_static = {workspace = true}
+derive_more = {workspace = true}
+tower = {workspace = true}
+tower-http = {workspace = true}
+axum = {workspace = true}
+axum-extra = {workspace = true}
+validator = {workspace = true}
+tera = {workspace = true}
+headers = {workspace = true}
+dotenvy = {workspace = true}
+
+## In crates
+livereload = {path = "crates/livereload"}
+database = {path = "crates/database"}
+results = {path = "crates/results"}
+pagination = {path = "crates/pagination"}
+
+### Endpoints
+styles = {path = "crates/styles"}
